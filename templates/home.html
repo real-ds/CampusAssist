@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusAssist Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleshome.css') }}"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to CampusAssist</h1>
+        <h3>Choose an option:</h3>
+        <div class="options">
+            <a href="/collegemap" class="btn">CollegeMap</a>
+            <a href="/facultydetails" class="btn">Faculty Details</a>
+            <!-- Add more options as needed -->
+        </div>
+    </div>
+    
+</body>
+</html>

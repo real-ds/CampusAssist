@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenStreetMap Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Blanka&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles1.css') }}">
+    <!-- Include Leaflet.js library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script>
+        var csvUrl = "{{ url_for('static', filename='mapsheet1.csv') }}";
+        var iconUrl = "{{ url_for('static', filename='marker2.png') }}";
+    </script>
+</head>
+<body>
+
+<div id="header">
+    <img src="{{ url_for('static', filename='vit_logo_colored.png') }}" alt="VIT Logo" style="width: 300px; height: auto;">
+    
+</div>
+
+<div id="map-container">
+    <div id="map"></div>
+    <div id="event-list"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script> <!-- Link to the external JavaScript file -->
+</body>
+</html>

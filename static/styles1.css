@@ -1,0 +1,84 @@
+#header {
+    position: absolute;
+    left: 20px; /* Adjust as needed */
+    top: 10px; /* Adjust as needed */
+    background-color: white; /* Set your desired background color */
+    padding: 10px; /* Adjust as needed */
+    border: 1px solid #ccc; /* Optional: Add border */
+    z-index: 9999;
+    width: 300px; /* Set fixed width */
+    font-size: 24px; /* Adjust as needed */
+     /* Adjust as needed */
+}
+
+#map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#map {
+    flex: 1;
+    width: 100vh;
+    height: 100vh;
+}
+#event-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    overflow-y: auto; /* Add vertical scrollbar if content exceeds height */
+    padding: 20px;
+    z-index: 999; /* Ensure the segment is above other elements */
+    transition: transform 0.4s ease; /* Add smooth transition effect */
+    transform: translateX(100%); /* Initially hide the segment off-screen */
+}
+
+#event-list.open {
+    transform: translateX(0); /* Move the segment into view */
+}
+
+#event-list button {
+    background-color: #ab0444b9; /* Background color */
+    color: #ffffff; /* Text color */
+    font-style: italic;
+    border: 1px solid #130404; /* Border */
+    padding: 10px 40px; /* Padding */
+    cursor: pointer; /* Cursor style */
+    font-size: 20px; /* Font size */
+    border-radius: 5px; /* Border radius */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+#event-list button:hover {
+    background-color: #0f016b; /* Background color on hover */
+    color: #ffffff; /* Text color on hover */
+}
+#event-list p,
+#event-list ul {
+    font-size: 20px; /* Font size */
+    line-height: 1.5; /* Line height */
+    margin-bottom: 10px; /* Bottom margin between items */
+}
+
+#event-list ul {
+    list-style-type: none; /* Remove bullet points from unordered list */
+}
+
+#event-list li {
+    padding: 5px 0; /* Padding for list items */
+}
+
+/* Style individual list items */
+#event-list li:nth-child(even) {
+    background-color: #f5f5f5; /* Alternate background color for even items */
+}

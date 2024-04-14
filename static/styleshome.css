@@ -1,0 +1,61 @@
+body {
+        margin: 0px;
+        padding: 0px;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Ensure body covers the entire viewport */
+        background-color: #f0f0f0; /* Light gray background color */
+        background-image: url('image.png'); /* Path to your background image */
+        background-repeat: no-repeat; /* Prevent the background image from repeating */
+        background-size: auto 100px; /* Set the size of the background image (adjust as needed) */
+        background-position: top center;
+        background-position-y: 10%; /* Center the background image horizontally and position it at the top */
+        font-family: 'Times New Roman', Times, serif; /* Use Arial font */
+        color: #333; /* Dark gray text color */
+    }
+    /* Ensure proper positioning */
+}
+
+.container {
+    text-align: center;
+    margin-top: 20vh; /* Vertically center the container */
+}
+
+h1 {
+    color: #333;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 40px;
+    margin: 0 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.logo-container {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999; /* Ensure logo is above other content */
+}
+
+.logo {
+    max-width: 100px; /* Adjust the size of the logo */
+    height: auto;
+}

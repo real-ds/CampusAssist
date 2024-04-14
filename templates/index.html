@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusAssist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link to your CSS file -->
+    <style>
+        /* Add this CSS for the new note */
+        .note-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .note {
+            font-style: italic;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CampusAssist</h1>
+        <h4>Welcome to VIT's Faculty Details Finder System</h4>
+        <h4>Please Enter Your Query to get answers!!</h4>
+        <input type="text" id="question-input" placeholder="Enter your question">
+        <button onclick="sendQuestion()">Ask</button>
+        <div id="response-container"></div>
+    </div>
+
+    <!-- New note container -->
+    <div class="note-container">
+        <h4 class="note">Note: You can Start By Searching your Professor's Name and Can Ask Their Contact Details Like Email or Their Cabin Location!</h4>
+    </div>
+
+    <script>
+        async function sendQuestion() {
+            const inputElement = document.getElementById('question-input');
+            const question = inputElement.value.trim(); // Trim whitespace from the input
+            const responseContainer = document.getElementById('response-container');
+
+            if (question) { // Check if the input is not empty
+                const queries = question.split(/[;,]/); // Split input by commas or semicolons
+                responseContainer.innerHTML = ''; // Clear previous responses
+
+                for (const query of queries) {
+                    const trimmedQuery = query.trim(); // Trim whitespace from each query
+                    if (trimmedQuery) { // Check if the trimmed query is not empty
+                        const response = await fetch('/api/chat', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ question: trimmedQuery })
+                        }).then(res => res.json());
+
+                        const responseElement = document.createElement('p');
+                        responseElement.textContent = response.response;
+                        responseContainer.appendChild(responseElement);
+                    }
+                }
+
+                inputElement.value = ''; // Clear the input field after processing queries
+            } else {
+                alert('Please enter a query.'); // Display an alert if the input is empty
+            }
+        }
+
+        // Submit query when Enter key is pressed
+        document.getElementById('question-input').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendQuestion();
+            }
+        });
+    </script>
+</body>
+</html>
